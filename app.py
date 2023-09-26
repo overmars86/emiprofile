@@ -46,13 +46,13 @@ This tool is for Emicool employees only.
 uploaded_file = st.file_uploader("Upload a csv file", type=['csv'])
 if uploaded_file is not None:
     file = pd.read_csv(uploaded_file)
-    with st.spinner('Uploading...'):
+    with st.spinner('Generating the report for download...'):
         report = ProfileReport(file)
         report = report.to_html()
-donwload = st.download_button('Download', report, 'report.html')
-if donwload == True:
-    uploaded_file.close()
-    st.write("Thank you, come again!")
+        donwload = st.download_button('Download', report, 'report.html')
+        if donwload == True:
+            uploaded_file.close()
+            # st.write("Thank you, come again!")
     
                 
 
