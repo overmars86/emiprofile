@@ -43,9 +43,9 @@ This tool is for Emicool employees only.
 
 """
 
-uploaded_file = st.file_uploader("Upload a csv file", type=['csv'])
+uploaded_file = st.file_uploader("Upload template", type=['xlsx', 'xlsm'])
 if uploaded_file is not None:
-    file = pd.read_csv(uploaded_file)
+    file = pd.read_excel(uploaded_file)
     with st.spinner('Generating the report for download...'):
         report = ProfileReport(file)
         report = report.to_html()
